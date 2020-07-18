@@ -7,6 +7,5 @@ public class BubblingSort implements Solution{
 	public int[] solution(int[] array) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-	
+	}	
 }
