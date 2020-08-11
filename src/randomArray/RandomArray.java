@@ -9,7 +9,7 @@ public class RandomArray {
 		int [] arr = new int[LENGTH];
 		
 		for (int i = 0; i < LENGTH; i++) {
-			arr[i] = (int)(1+Math.random()*100);
+			arr[i] = (int)(Math.random()*100);
 		}
 		
 		return arr;
