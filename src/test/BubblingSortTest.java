@@ -1,5 +1,6 @@
-package algorithm;
+package test;
 
+import algorithm.BubblingSort;
 import org.junit.jupiter.api.Test;
 
 class BubblingSortTest {
