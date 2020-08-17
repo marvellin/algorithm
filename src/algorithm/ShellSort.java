@@ -22,7 +22,6 @@ public class ShellSort implements Solution {
 			if (array[i] < array[i - dk]) {
 				int j = i - dk;
 				int x = array[i];
-//				array[i] = array[i-dk];
 				while (j >= 0 && x < array[j]) {
 					array[j + dk] = array[j];
 					j -= dk;

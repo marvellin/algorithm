@@ -2,6 +2,7 @@ package test;
 
 import algorithm.QuickSort;
 import org.junit.jupiter.api.Test;
+import randomArray.RandomArray;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -11,7 +12,8 @@ class QuickSortTest {
     @Test
     void solution() {
         QuickSort quickSort = new QuickSort();
-        quickSort.solution(array);
+//        quickSort.solution(array);
+        quickSort.solution(RandomArray.getRandomArray());
     }
 
     @Test

@@ -10,8 +10,82 @@ public class QuickSort implements Solution {
 	@Override
 	public int[] solution(int[] array) {
 		// TODO Auto-generated method stub
-		quickSort(array, 0, array.length-1);
+//		quickSort(array, 0, array.length-1);
+		for (int a : array){
+			System.out.print(a + " ");
+		}
+		sort(array, 0, array.length - 1);
+		System.out.println();
+		for (int a : array){
+			System.out.print(a + " ");
+		}
 		return array;
+	}
+
+	/*
+	* 普通快排实现方法2
+	* */
+	private void sort(int[] array, int left, int right){
+		if (left >= right) return;
+		int start = left;
+		int end = right;
+		int flag = array[left];
+		while (left < right){
+			while (left < right && array[left] <= flag) left++;
+			while (left < right && array[right] > flag) right--;
+			int tmp = array[left];
+			array[left] = array[right];
+			array[right] = tmp;
+		}
+		int tmp1 = array[left - 1];
+		array[left - 1] = array[start];
+		array[start] = tmp1;
+		sort(array, start, left-1);
+		sort(array, left, end);
+	}
+
+	/*
+	 * 传统的快排算法，递归主函数
+	 * */
+	/*private void quickSort(int [] array, int low, int high){
+		if (low < high){
+			//将表一分为二
+			int privotLoc = partition(array, low, high);
+
+			FileIO.writeArray(array, "quickSort.txt");
+
+			//递归对低子表排序
+			quickSort(array, low, privotLoc - 1);
+
+			//递归对高子表排序
+			quickSort(array, privotLoc + 1, high);
+		}
+	}*/
+
+	private void swap(int [] array, int low, int high){
+		int tmp = array[low];
+		array[low] = array[high];
+		array[high] = tmp;
+	}
+
+	/*
+	* 根据基准privotkey将待排列表分为两部分，即大于基准的元素和小于基准的元素
+	* */
+	private int partition(int [] array, int low, int high) {
+		//挑选基准元素（通常为待排列表第一位）
+		int privotkey = array[low];
+
+		//从表的两端交替地向中间扫描
+		while (low < high) {
+			while (low < high && array[high] >= privotkey) --high;
+			//交换
+			swap(array, low, high);
+			while (low < high && array[low] <= privotkey) ++low;
+			//交换
+			swap(array, low, high);
+		}
+
+		return low;
 	}
 
 	//改进的快排算法，当序列基本有序时，调用插入排序对基本有序序列进行排序
@@ -43,49 +117,5 @@ public class QuickSort implements Solution {
 
 			improvedQuickSort(array, low, privotLoc + 1, k);
 		}
-	}
-
-	/*
-	 * 传统的快排算法，递归主函数
-	 * */
-	private void quickSort(int [] array, int low, int high){
-		if (low < high){
-			//将表一分为二
-			int privotLoc = partition(array, low, high);
-
-			FileIO.writeArray(array, "quickSort.txt");
-
-			//递归对低子表排序
-			quickSort(array, low, privotLoc - 1);
-
-			//递归对高子表排序
-			quickSort(array, privotLoc + 1, high);
-		}
-	}
-
-	private void swap(int [] array, int low, int high){
-		int tmp = array[low];
-		array[low] = array[high];
-		array[high] = tmp;
-	}
-
-	/*
-	* 根据基准privotkey将待排列表分为两部分，即大于基准的元素和小于基准的元素
-	* */
-	private int partition(int [] array, int low, int high) {
-		//挑选基准元素（通常为待排列表第一位）
-		int privotkey = array[low];
-
-		//从表的两端交替地向中间扫描
-		while (low < high) {
-			while (low < high && array[high] >= privotkey) --high;
-			//交换
-			swap(array, low, high);
-			while (low < high && array[low] <= privotkey) ++low;
-			//交换
-			swap(array, low, high);
-		}
-
-		return low;
 	}
 }
