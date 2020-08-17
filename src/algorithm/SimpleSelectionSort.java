@@ -3,6 +3,8 @@ package algorithm;
 
 import fileIO.FileIO;
 
+import java.io.File;
+
 public class SimpleSelectionSort implements Solution {
 
 	@Override
@@ -20,6 +22,54 @@ public class SimpleSelectionSort implements Solution {
 			}
 		}
 		return null;
+	}
+
+	public int[] improvedSolution(int[] array){
+		FileIO.writeArray(array,"improvedSelectionSort.txt");
+		int i, j, tmp, min, max;
+		boolean chgFlag = false;
+		for (i = 0; i < array.length / 2; i++){
+			min = max = i;
+			chgFlag = false;
+			for (j = i + 1; j <= array.length-1-i; j++){
+				/*
+				* 分别记录下标i之后最大和最小值
+				* */
+				if (array[j] > array[max]){
+					max = j;
+					continue;
+				}
+				if (array[j] < array[min]){
+					min = j;
+				}
+			}
+
+			/*
+			* 针对不同情况进行交换操作，提高效率
+			* */
+			if (min != i){
+				tmp = array[min];
+				array[min] = array[i];
+				array[i] = tmp;
+				chgFlag = true;
+			}
+			if (min == array.length-1-i && max == i){
+				continue;
+			}
+			if (max == i){
+				max = min;
+			}
+			if (max != array.length-1-i){
+				tmp = array[max];
+				array[max] = array[array.length-1-i];
+				array[array.length-1-i] = tmp;
+				chgFlag = true;
+			}
+			if(chgFlag) {
+				FileIO.writeArray(array,"improvedSelectionSort.txt");
+			}
+		}
+		return array;
 	}
 
 	/*
