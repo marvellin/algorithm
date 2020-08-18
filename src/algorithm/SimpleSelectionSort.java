@@ -21,7 +21,7 @@ public class SimpleSelectionSort implements Solution {
 				FileIO.writeArray(array,"simpleSelectionSort.txt");
 			}
 		}
-		return null;
+		return array;
 	}
 
 	public int[] improvedSolution(int[] array){
