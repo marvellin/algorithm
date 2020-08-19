@@ -34,6 +34,7 @@ public class MergeSort implements Solution {
 			else result[index] = left[i++];
 		}
 		FileIO.writeArray(result,"mergeSort.txt");
+//		int[] test = null;
 		return result;
 	}
 }
