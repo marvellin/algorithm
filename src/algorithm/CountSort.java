@@ -11,7 +11,7 @@ public class CountSort implements Solution {
 	@Override
 	public int[] solution(int[] array) {
 		// TODO Auto-generated method stub
-
+		if (array.length == 0) return array;
 		FileIO.writeArray(array,"countSort.txt");
 		int max, min;
 		max = min = array[0];
