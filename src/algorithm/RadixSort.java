@@ -45,7 +45,7 @@ public class RadixSort implements Solution {
 		for (int i = 0; i < maxDigit; i++, mod *= 10, div *= 10){
 			//对待排数组进行该次分配
 			for (int j = 0; j < array.length; j++){
-				int num = (array[j] % mod) /div;
+				int num = (array[j] % mod) / div;
 				bucketList.get(num).add(array[j]);
 			}
 
@@ -56,11 +56,14 @@ public class RadixSort implements Solution {
 				for (int k = 0; k < bucketList.get(j).size(); k++){
 					array[index++] = bucketList.get(j).get(k);
 				}
+//				千万记得clear
 				bucketList.get(j).clear();
 			}
 
 			FileIO.writeArray(array,"radixSort.txt");
 		}
+
+//		int[][] tmp = new int[10][];
 
 		return array;
 	}
