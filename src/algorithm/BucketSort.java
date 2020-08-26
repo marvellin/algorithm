@@ -37,7 +37,7 @@ public class BucketSort implements Solution {
 		int bucketCount = (max - min) / bucketSize + 1;
 
 		//定义桶数组
-		ArrayList<ArrayList<Integer>> bucketArray = new ArrayList<>(bucketCount);
+		ArrayList<ArrayList<Integer>> bucketArray = new ArrayList<ArrayList<Integer>>(bucketCount);
 
 		//定义结果数组
 		ArrayList<Integer> result = new ArrayList<>();
