@@ -15,5 +15,6 @@ class BiSearchTest {
         int result = biSearch.solution(OrderedArray.getOrderedArray(), 50);
 
         System.out.println(result);
+
     }
 }
