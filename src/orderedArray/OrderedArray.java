@@ -14,6 +14,12 @@ public class OrderedArray {
 
         QuickSort quickSort = new QuickSort();
 
-        return quickSort.solution(array);
+        array = quickSort.solution(array);
+
+        for (int a : array){
+            System.out.print(a + " ");
+        }
+
+        return array;
     }
 }

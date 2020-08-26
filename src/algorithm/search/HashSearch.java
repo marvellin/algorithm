@@ -8,7 +8,7 @@ public class HashSearch implements SearchSolution{
         int [] hashArray = new int[hash];
 
         for (int i = 0; i < array.length; i++){
-            insertHash(hashArray, hash, array[i]);
+            insertHash(hashArray, array[i], hash);
         }
 
         int result = searchHash(hashArray, target, hash);

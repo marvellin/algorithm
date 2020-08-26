@@ -8,11 +8,12 @@ public class InsertionSearch implements SearchSolution{
     public int solution(int[] array, int target) {
         int low = 0;
         int high = array.length - 1;
-        search(array, target, low, high);
-        return 0;
+        return search(array, target, low, high);
     }
 
     private int search(int [] array, int target, int low, int high){
+        if (low > high) return -1;
+
         int mid = low + (target - array[low]) / (array[high] - array[low]) * (high - low);
 
         if (array[mid] == target) return mid;

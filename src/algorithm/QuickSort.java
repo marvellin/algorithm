@@ -11,14 +11,14 @@ public class QuickSort implements Solution {
 	public int[] solution(int[] array) {
 		// TODO Auto-generated method stub
 //		quickSort(array, 0, array.length-1);
-		for (int a : array){
+		/*for (int a : array){
 			System.out.print(a + " ");
-		}
+		}*/
 		sort(array, 0, array.length - 1);
-		System.out.println();
+		/*System.out.println();
 		for (int a : array){
 			System.out.print(a + " ");
-		}
+		}*/
 		return array;
 	}
 
